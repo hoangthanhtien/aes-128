@@ -7,23 +7,23 @@ import timeit
 x = input("Nhập chuỗi cần mã hóa: ")
 print("Chuỗi cần mã hóa", x)
 
-start = timeit.default_timer()
-encrypted = aes.AES(key).encrypt_ctr(x.encode('utf-8'), iv)
-end = timeit.default_timer()
+# start = timeit.default_timer()
+# encrypted = aes.AES(key).encrypt_ctr(x.encode('utf-8'), iv)
+# end = timeit.default_timer()
 
 print("\n")
 print("=====================128bit========================\n")
 # encrypted = aes.encrypt(key, b'Hello World')
 
 start = timeit.default_timer()
-encrypted = aes.AES(key).encrypt_ctr(x.encode('utf-8'), iv)
+encrypted = aes.AES(key).encrypt_cbc(x.encode('utf-8'), iv)
 end = timeit.default_timer()
 print("Ciphertext", encrypted)
 print("Thời gian mã hóa", end - start)
 
 
 start = timeit.default_timer()
-string = aes.AES(key).decrypt_ctr(encrypted, iv)
+string = aes.AES(key).decrypt_cbc(encrypted, iv)
 end = timeit.default_timer()
 
 print("Kết quả giải mã", string)
