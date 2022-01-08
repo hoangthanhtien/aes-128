@@ -220,6 +220,9 @@ class AES:
         return matrix2bytes(cipher_state)
 
     def encrypt_cbc(self, plaintext, iv):
+        """
+        Hàm mã hóa chuỗi plain text 
+        """
         assert len(iv) == 16
 
         plaintext = pad(plaintext)
